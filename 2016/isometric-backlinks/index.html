@@ -43,7 +43,7 @@
             height: 100%;
             display: inline-block;
             background-color: #2d526d;
-            padding: 5px;
+            padding: 2%;
         }
 
         svg {
@@ -71,6 +71,16 @@
             left: 1%;
         }
 
+        #dropdown-wrapper {
+            width: 100%;
+            margin: auto;
+            text-align: center;
+        }
+
+        #dropdown-wrapper span {
+            font-weight: bold;
+        }
+
     </style>
 
 </head>
@@ -79,8 +89,16 @@
     <section id="content-area">
         <div id="content-wrap">
             <svg></svg>
-            <br>
-            Site:&nbsp;
+            <!-- <br><br>
+            <div id="slider2" class="d3-slider d3-slider-vertical"></div> -->
+            <div id="slider" class="d3-slider d3-slider-horizontal" style="width: 50%;"></div>
+        </div>
+    </section>
+    <section id="desc-panel">
+        <h1>Link projection</h1>
+        <h3>Shows <a href="https://developer-support.majestic.com/api/commands/get-back-links-history.shtml" target="_blank">backlink</a> history from December 2010 to May 2016</h3>
+        <div id="dropdown-wrapper">
+            <span>Site</span>&emsp;
             <select id="dropdown" onchange="onDropdownChange()">
                 <option value="bitbucket.org" selected>Bitbucket</option>
                 <option value="github.com">GitHub</option>
@@ -91,8 +109,8 @@
                 <option value="ox.ac.uk">Oxford University</option>
                 <option value="reddit.com">Reddit</option>
             </select>
-            &nbsp;
-            Link type:
+            <br>
+            <span>Link type</span>&emsp;
             <select id="dropdown2" onchange="onDropdownChange()">
                 <option value="TextLink">Text</option>
                 <option value="ImageLink">Image</option>
@@ -107,15 +125,7 @@
                 <option value="MentionDomains">Mention domains</option>
                 <option value="DomainURLs">Domain URLs</option>
             </select>
-            <br><br><br>
-            <!-- <br><br>
-            <div id="slider2" class="d3-slider d3-slider-vertical"></div> -->
-            <div id="slider" class="d3-slider d3-slider-horizontal" style="width: 50%;"></div>
         </div>
-    </section>
-    <section id="desc-panel">
-        <h1>Link projection</h1>
-        <h3>Shows <a href="https://developer-support.majestic.com/api/commands/get-back-links-history.shtml" target="_blank">backlink</a> history from December 2010 to May 2016</h3>
     </section>
     <script src="js/projection.js"></script>
 </body>
