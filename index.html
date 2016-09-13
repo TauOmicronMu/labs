@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+    <title> Majestic Labs </title>
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: #fff;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        header {
+            height: 10%;
+            background-color:#2d526d;
+            margin-bottom: 2%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 99999;
+            width: 100%;
+        }
+
+        #pages {
+            margin: auto;
+            text-align: center;
+            height: 80%;
+            color: #000;
+        }
+
+        .fotorama {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 15%;
+            left: 20%;
+        }
+
+        .fotorama__caption__wrap {
+            font-size: 2vw;
+            background-color: #2d526d;
+        }
+        .caption-button {
+            padding: 2.5%;
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            border-radius: 25px;
+            border: none;
+            display: inline-block;
+            text-decoration: none;
+            background-color: #2d526d;
+            text-align: center;
+            color: #ff8d40;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1c3b51;
+        }
+
+    </style>
+
+    <!-- 1. Link to jQuery (1.8 or later), -->
+    <script src="jquery.min.js"></script> <!-- 33 KB -->
+
+    <!-- fotorama.css & fotorama.js. -->
+    <link  href="fotorama.css" rel="stylesheet"> <!-- 3 KB -->
+    <script src="fotorama.js"></script> <!-- 16 KB -->
+
+    <link href="font-awesome.min.css" rel="stylesheet">
+
+    <link href="2016/template/generic.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+<header>
+    <img id="logo" src="res/majestic-logo-white-trans-small.png"/>
+</header>
+
+<footer>
+    Made with <i class="fa fa-heart" aria-hidden="true"></i> by Majestic Summer Interns
+</footer>
+
+<section id="pages">
+    <div class="fotorama"
+         data-loop="true"
+         data-width="60%"
+         data-height="80%"
+         data-click="false"
+    >
+        <!-- ATTENTION FUTURE INTERNS!!! To add your dev just add an img to the top of this "stack" and that's it! ~TauOmicronMu -->
+        <!-- Also make sure the link to your dev is labs.majestic.com/YEAR -->
+        <img src="res/2016.png" data-caption="2016 Interns - Page Link Network">
+        <img src="res/2015.png" data-caption="2015 Interns - Visualisation Toolkit">
+    </div>
+</section>
+
+<script src="2016/template/generic.js"></script>
+
+<script>
+    //Prevent the user from using arrow keys because there was an issue with hiding the overflow ~TauOmicronMu
+    window.addEventListener("keydown", function(e) {
+        // space and arrow keys
+        if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+            e.preventDefault();
+        }
+    }, false);
+
+    //Attach button to each caption.
+    $(document).ready(function() {
+        var captions = document.getElementsByClassName("fotorama__caption__wrap");
+
+        var year = 2015 + (captions.length - 1); //Given that there was an internship every year from 2015 ~TauOmicronMu
+
+        for(var i = 0; i < captions.length; i++) {
+            //Sorry, future interns. Just trust me that it works ~TauOmicronMu
+            captions[i].innerHTML += "&emsp;<button class='caption-button' onclick='window.location=\"http://labs.majestic.com/" + year + "\"'>Visit Site <i class=\"fa fa-external-link\" aria-hidden=\"true\"></i> </button}>";
+            year--; //We started at the most recent year, so decrement this.
+        }
+    });
+</script>
+</body>
+
+</html>

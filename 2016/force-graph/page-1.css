@@ -1,0 +1,98 @@
+/* Styling for the LHS of the front page */
+
+#page-1-content-area {
+    width: 80vw;
+    height: 100vh;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+}
+
+/* Styling for the RHS of the front page */
+#page-1-controls {
+    font-size: 0.80vw !important;
+    background-color: #2d526d;
+    color: #ffffff;
+    min-width: 20vw;
+    max-width: 20vw;
+    min-height: 100vh;
+    float: right;
+    display: inline-block;
+}
+
+#page-1-controls a {
+    font-weight: bold;
+}
+
+#page-1-controls b {
+    color: #ff8d40;
+}
+
+#page-1-site-choice-area {
+    width: 100%;
+    text-align: center;
+}
+
+#page-1-site-choice-area select {
+    border-radius: 4px;
+    background: #2d526d;
+    width: 35%;
+    text-overflow: "";
+    color: #fff;
+    padding: 7px 14px;
+    border: solid 1px rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    text-align: justify;
+}
+
+ #radio-controls-area {
+     width: 100%;
+     position: relative;
+     margin-bottom: 2.5% !important;
+ }
+
+#line-colour-area, #display-type-area {
+    width: 40%;
+    display: inline;
+}
+
+#line-colour-area {
+    float: left;
+    padding-left: 5% !important;
+}
+
+#display-type-area {
+    float: right;
+}
+
+#page-1-go-deeper-button {
+    margin-top: 5% !important;
+}
+
+
+#get-started-button-area {
+    margin: auto;
+    text-align: center;
+    width: 100%;
+}
+
+#get-started-button {
+    font-size: 0.8vw;
+    width: 90%;
+    margin: auto;
+    padding: 10px 0 10px 0;
+}
+
+#info-container {
+    position: relative;
+    width: 100%;
+    transform: translate(0%, 10%);
+}
+
+#twitter-button {
+    position: absolute;
+    bottom: 7.5%;
+    right: 6%;
+    width: 5%;
+}

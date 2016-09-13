@@ -1,0 +1,201 @@
+tr {    
+    text-align: center;
+    width: 100%;
+}
+
+td {
+    width: 100%;
+}
+
+body {
+    margin: 0px;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 9.5pt;
+    color: white;
+    overflow: visible;
+    width: 100%;
+}
+
+table {
+    
+}
+
+#pageTitle {
+    font-size: 40pt;
+    font-weight: bold;
+    font-style: italic;
+}
+
+div.menu {
+    margin: 10 auto;
+    text-align: center;
+    border: 10px;
+    border-radius: 10px;
+    border-color: #ff8d40;
+    background: #2d526d;
+    width: 800px;
+    padding-bottom: 50px;
+    border-style: solid;
+}
+
+.pTitle {
+    font-weight: bold;
+    padding-top: 5px;
+    text-align: center;
+}
+
+.controlsdescription {
+    padding-bottom: 25px;
+}
+
+input {
+    text-align: center;
+}
+
+.bigbutton {
+    background: #ff8d40;
+    margin: 5px;
+    width: 200px;
+    height: 50px;
+    border: 2px;
+    border-style: solid;
+    border-color: #FF6600;
+}
+
+.unusableButton {
+    background: #CDCDCD;
+    border-color: #C0C0C0;
+    margin: 5px;
+    width: 200px;
+    height: 50px;
+    border: 2px;
+    border-style: solid;
+}
+
+canvas#mracing {
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
+    -ms-interpolation-mode: nearest-neighbor;
+}
+
+.playerEntry {
+    margin: 0 auto;
+    border: 10px;
+    width: 400px;
+    float: left;
+}
+
+.infoEntry {
+    margin: 0 auto;
+    border: 10px;
+    width: 400px;    
+}
+
+#pausebutton {
+    position: fixed;
+    left: 5px;
+    bottom: 5px;
+    display: none;
+}
+
+#pausemenu {
+    padding-top: 50px;
+    position: fixed;
+    bottom: 20px;
+    right: 25%;
+    left: 25%;
+    width: 50%;
+}
+
+select {
+    width: 181px;
+    height: 27px;
+}
+
+option {
+    text-align: center;
+}
+
+#gamearea {
+    display: none;
+}
+
+#winnerbox {
+    display: none;
+    position: fixed;
+    width: 70%;
+    left: 15%;
+    right: 15%;
+    top: 10px;
+    font-size: 50pt;
+}
+
+div#hud {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 250px;
+    opacity: 0.95;
+}
+
+.hudtile {
+    margin: 5px;
+    border: 2px;
+    border-style: solid;
+    border-color: #ff8d40;
+    background: #2d526d;
+    width: 350px;
+}
+
+.carpic {
+    position: relative;
+    top: -75px;
+    left: 215px;
+    width: 64px;
+    height: 64px;
+}
+
+.hudsection {
+    height: 100px;
+    margin-bottom: 5px;
+}
+
+#countdown {
+    font-size: 200pt;
+    text-align: center;
+    top: 120px;
+    left: 0;
+    line-height: 200px;
+    margin: auto;
+    margin-top: -100px;
+    position: absolute;
+    width: 100%;
+    font-weight: bold;
+}
+
+input[type=radio]:not(old){
+    margin: 5;
+}
+
+.coverImg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9998;
+}
+
+#beginFromCoverButton {
+    position: fixed;
+    bottom: 3%;
+    z-index: 9999;
+    left: 39%;
+}
+
+#fullVersionButton {
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    z-index: 9999;
+}

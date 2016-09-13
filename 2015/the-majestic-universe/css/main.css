@@ -1,0 +1,65 @@
+ #infobox {
+    top: 60px;
+    right: 12px;
+    width: 400px;
+    height: 91%;
+    
+    overflow: auto;
+}
+
+#infodetails .infolabel {
+    text-align: right;
+}
+
+#infodetails .infovalue {
+    text-align: left;
+}
+
+#infobox table{
+    width: 100%;
+    position: relative;
+}
+
+.infolabel, .infovalue {
+    width: 50%;
+}
+
+#infotopicsholder {
+    margin: 0 auto;
+}
+
+img#infolinkprofile {
+    width: 90%;
+    margin: 20px auto;
+}
+
+button.toggleSizeTipHide {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 50px;
+    z-index: 9999;
+}
+
+button.toggleSizeTipShow {
+    position: fixed;
+    top: 65px;
+    right: 17px;
+    width: 50px;
+    z-index: 9999;
+}
+
+.hidebox {
+    z-index: 0;
+    border: 0px;
+    top: 60px;
+    right: 12px;
+    width: 25%;
+    height: 10px;
+}
+
+#selectedPlanetPic {
+    top: 10px;
+    left: 10px;
+    position: absolute;
+}

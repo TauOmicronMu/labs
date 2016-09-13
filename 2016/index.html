@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+    <title> Majestic Labs </title>
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: #fff;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        header {
+            height: 10%;
+            background-color:#2d526d;
+            margin-bottom: 2%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 99999;
+            width: 100%;
+        }
+
+        #pages {
+            margin: auto;
+            text-align: center;
+            height: 80%;
+            color: #000;
+        }
+
+        .fotorama {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 15%;
+            left: 20%;
+        }
+
+        .fotorama__caption__wrap {
+            font-size: 2vw;
+            background-color: #2d526d;
+        }
+        .caption-button {
+            padding: 2.5%;
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            border-radius: 25px;
+            border: none;
+            display: inline-block;
+            text-decoration: none;
+            background-color: #2d526d;
+            text-align: center;
+            color: #ff8d40;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1c3b51;
+        }
+
+    </style>
+
+    <!-- 1. Link to jQuery (1.8 or later), -->
+    <script src="jquery.min.js"></script> <!-- 33 KB -->
+
+    <!-- fotorama.css & fotorama.js. -->
+    <link  href="fotorama.css" rel="stylesheet"> <!-- 3 KB -->
+    <script src="fotorama.js"></script> <!-- 16 KB -->
+
+    <link href="font-awesome.min.css" rel="stylesheet">
+
+    <link href="template/generic.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+<header>
+    <img id="logo" src="res/majestic-logo-white-trans-small.png"/>
+</header>
+
+<footer>
+    Made with <i class="fa fa-heart" aria-hidden="true"></i> by TauOmicronMu & SamTebbs33
+</footer>
+
+<section id="pages">
+    <div class="fotorama"
+         data-loop="true"
+         data-width="60%"
+         data-height="80%"
+         data-click="false">
+
+        <!-- SAM! TO ADD A NEW SLIDER JUST ADD AN IMG FOR IT AND ADD A LINK TO THE END OF THE ARRAY =) -->
+        <img src="res/force-graph.png" data-caption="Page Link Network">
+        <img src="res/majestic-logo-black-trans-small.png" data-caption="Site Host Map">
+        <img src="res/iso_backlinks.png" data-caption="Isometric Backlinks">
+    </div>
+</section>
+
+<script src="template/generic.js"></script>
+
+<script>
+    /* THIS ARRAY, SAM! */
+    var paths = [
+            "force-graph",
+            "isometric-backlinks",
+            "site-host-map"
+    ];
+
+    //Attach button to each caption.
+    $(document).ready(function() {
+        var captions = document.getElementsByClassName("fotorama__caption__wrap");
+
+        for(var i = 0; i < paths.length; i++) {
+            captions[i].innerHTML += "&emsp;<button class='caption-button' onclick='window.location=\"" + paths[i] + "\"'>Visit Site <i class=\"fa fa-external-link\" aria-hidden=\"true\"></i> </button}>";
+        }
+    });
+
+</script>
+
+</body>
+
+</html>

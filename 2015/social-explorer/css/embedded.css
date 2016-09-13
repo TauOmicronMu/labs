@@ -1,0 +1,19 @@
+#top-container {
+    width: 40%;
+}
+
+.graphContainer {
+    width: 60%;
+}
+
+.top-item-link {
+    font-size: 80%;
+}
+
+.imglogoembedded {
+    bottom: 0px;
+}
+
+#footer {
+    display: none;
+}

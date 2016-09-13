@@ -1,0 +1,73 @@
+.navButtonContainer {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 9998;
+}
+
+.navButton {
+    width: 80px;
+    margin-left: 5px;
+    position: fixed;
+    top: 7px;
+    right: 0px;
+}
+
+.inputs{
+    background: #E0E0E0 none repeat scroll 0px 0px;
+    width: 100%;
+    height: 30px;
+    border: 0px;
+    padding: 7.5px;
+    margin: 0px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 9990;
+}
+
+input {
+    border: 1px solid #9BABB9;
+    margin-right: 2px;
+    margin: 0px;
+    padding: 5px;
+    color: #333;
+}
+
+.inputsection {
+    margin: 5px;
+}
+
+.generalbuttons {
+    position: absolute;
+    right: 25px;
+}
+
+.apiOMeter {
+	position: absolute;
+	right: 150px;
+    top: 4px;
+}
+
+#holder {
+    width: 100%;
+    font-size: 15pt;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+.holderTitle {
+    text-align: center;
+    color: white;
+    padding: 10px;
+    background: #1c3b51 none repeat scroll 0px 0px;
+    border-bottom: 2px solid #ff8d40;
+    font-weight: bold;
+}
+
+.holdertext {
+    width: 83%;
+}
+
+.extraButton {
+	margin-left: 5px;
+}

@@ -1,0 +1,12 @@
+.graphContainer {
+    display: none;
+}
+
+#top-container {
+    width: 100%;
+}
+
+.imglogoembedded {
+    bottom: 5px;
+    right: 100px;
+}

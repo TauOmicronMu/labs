@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden
+    }
+
+    #slider {
+        position: absolute;
+        bottom: 2%;
+        left: 10%;
+        right: 10%;
+    }
+
+    #choropleth {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0
+    }
+</style>
+<head>
+    <link type="text/css" href="d3.slider.css" rel="stylesheet"/>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script src="../lib/topojson.min.js"></script>
+    <script src="../lib/datamap.js"></script>
+    <script src="js/d3.slider.js"></script>
+    <!-- <script src="lib/papaparse.min.js"></script>
+    <script src="lib/FileSaver.min.js"></script>
+    <script src="js/convert.js"></script> -->
+</head>
+<body>
+<div id="choropleth"></div>
+<div id="slider" class="d3-slider-horizontal"></div>
+<script src="js/index.js"></script>
+</body>

@@ -1,0 +1,24 @@
+body {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 9.5pt;
+    color: #333;
+    overflow: hidden;
+}
+
+td {
+    align-content: center;
+    width: 100%;
+}
+
+.gif {
+    top: 25px;
+    position: absolute;
+    display: block;
+    widows: 400px;
+    height: 400px;
+    text-align: center;
+}
+
+.giftxt {
+    top: 450px;
+}

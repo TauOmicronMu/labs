@@ -1,0 +1,141 @@
+body {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 9.5pt;
+    color: #333;
+}
+
+#descr {
+    text-align: justify;
+    text-justify: inter-word;
+    width: 600px;
+}
+
+img#header {
+    display: block;
+    box-shadow: 0px 0px 0px #000;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.projectTitleHolder img {
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px #999;
+}
+
+.mlogo {
+    border-radius: 0px;
+}
+
+#authorDescription {
+    background: #E0E0E0 none repeat scroll 0px 0px;
+    padding: 10px;
+    margin: 0px;
+    border: 5px;
+    position: fixed;
+    bottom: 0;
+    z-index: 9999;
+    width: 100%;
+    min-width: 135px;
+}
+
+a.projectTitleHolder {
+    position: relative;
+}
+
+p.projectTitle {
+    position: absolute;
+    top: 115px;
+    display: inherit;
+    left: 25px;
+    background: rgba(45, 82, 109, 0.6) none repeat scroll 0px 0px;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 15pt;
+    color: white;
+    width: 270px;
+    text-decoration: none;
+}
+
+#projLinks {
+    bottom: 0;
+    position: relative;
+    width: 100%;
+}
+
+.mainPage {
+    text-align: center;
+}
+
+.aboutlink {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    margin: 10px;
+    border-radius: 5px;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 15pt;
+    text-decoration: none;
+    background: #2D526D none repeat scroll 0px 0px;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 0px;
+    color: #FFF;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.memberpic {
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px #999999;
+}
+
+table.descriptionContent {
+    margin-left: auto; 
+    margin-right: auto;
+    width: 600px;
+}
+
+table.memberTable {
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 600px;
+    text-align: center;
+}
+
+tr.member {
+    width: 300px;
+}
+
+.memberinfopic {
+    padding: 0px;
+    padding-right: 10px;
+    margin: 0px;
+    border: 0px;
+    width: 300px;
+    text-align: right;
+}
+
+.memberinfotxt {
+    padding: 0px;
+    padding-left: 10px;
+    margin: 0px;
+    border: 0px;
+    width: 300px;
+    text-align: left;
+}
+
+p.descriptionText {
+    text-align: justify;
+    text-justify: inter-word;
+    width: 600px;
+}
+
+/* Overrides bootstrap */
+button, a:hover {
+    color: white;
+    text-decoration: none;
+}

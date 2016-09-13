@@ -1,0 +1,15 @@
+svg, .graphContainer, .graph, body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.graphContainer {
+    margin-top: 45px;
+}
+
+.axis {
+    fill: none;
+    stroke: black;
+    stroke-width: 1; 
+}

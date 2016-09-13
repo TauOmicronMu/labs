@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Style guide can be found here: https://majestic.com/support/style-guide -->
+
+<!--
+    Majestic Blue: #2d526d
+    Highlight Blue: #1c3b51
+    Primary Orange: #ff8d40
+    Primary Background: #ffffff
+    Secondary Background: #eaeaea
+-->
+
+<head>
+
+    <!-- Favicon stuff -->
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <!-- Meta etc. -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable = yes">
+
+    <!-- Load in the generic CSS -->
+    <link href="../template/generic.css" rel="stylesheet" type="text/css">
+
+    <!-- Load in the app-specific CSS -->
+    <link href="stylesheet.css" rel="stylesheet" type="text/css">
+    <link href="page-1.css" rel="stylesheet" type="text/css">
+
+    <!-- Load in FontAwesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+    <!-- Load in JQuery, D3 and the Loading Overlay -->
+    <script src="../lib/jquery-3.0.0.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+
+    <script src="../lib/jquery-loading-overlay-1.4.0/src/loadingoverlay.min.js"></script>
+    <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <!-- Load in the graph scripts -->
+    <script src="linkdirected.js"></script>
+
+    <!-- Load in the generic JS -->
+    <script src="../template/generic.js"></script>
+
+    <title> Majestic Link Graph </title>
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:creator" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+
+</head>
+
+<!-- Make everything unselectable and pretty :) -->
+<body class="unselectable" oncontextmenu="return false;">
+
+<!-- This will be absolutely positioned into the top-left corner. -->
+<img id="logo" src="../res/majestic-logo-black-trans-small.png"/>
+
+<!-- This is the popup page info box -->
+<section id="page-info">
+    <span class="b"> URL : </span> <span id="page-info-url"></span>
+    <br>
+    <span class="b"> Topic: </span> <span id="page-info-topic"></span>
+    <br>
+    <span class="b"> Citation Flow: </span> <span id="page-info-citation"></span>
+    <br>
+    <span class="b"> Trust Flow: </span> <span id="page-info-trust"></span>
+</section>
+
+<!-- This will be absolutely positioned at the bottom -->
+<footer>
+    Made with <i class="fa fa-heart" aria-hidden="true"></i> by
+    <a href="https://twitter.com/TauOmicronMu" class="twitter-follow-button" data-show-count="false">@TauOmicronMu</a>
+    and
+    <a class="github-button" href="https://github.com/SamTebbs33" aria-label="Follow @SamTebbs33 on GitHub">SamTebbs33</a>
+</footer>
+<!-- Page that gets the user to authenticate via open apps etc. -->
+<section id="page-1" class="page">
+
+    <section id="page-1-content-area">
+    </section>
+
+    <section id="page-1-controls">
+
+        <div id="info-container">
+
+            <h1> Page Link Network</h1>
+
+            <div id="page-1-site-choice-area">
+                <span style="font-weight: bold">University - </span>
+                <select id="page-1-site-choice" onchange="changeSite()">
+                    <option value="Birmingham">Birmingham</option>
+                    <option value="MIT">MIT</option>
+                    <option value="Aston">Aston</option>
+                    <option value="BCU">BCU</option>
+                    <option value="Oxford">Oxford</option>
+                    <option value="Cambridge">Cambridge</option>
+                    <option value="Imperial">Imperial</option>
+                </select>
+            </div>
+
+            <div id="radio-controls-area">
+                <div id="line-colour-area">
+                    <p style="font-weight: bold"> Line Colouring </p>
+                    <form class="radio-form">
+                        <!-- Select topic by default -->
+                        <input id="page-1-citation-colour" type="radio" name="page-1-line-colouring" title="citation" value="citation" class="controls-radio" checked="checked"/> Citation Flow
+                        <br>
+                        <input type="radio" name="page-1-line-colouring" title="trust" value="trust" class="controls-radio"/> Trust Flow
+                    </form>
+                </div>
+                <div id="display-type-area" style="visibility: hidden">
+                    <p style="font-weight: bold"> Display Type </p>
+                    <form class="radio-form">
+                        <!-- Select topic by default -->
+                        <input type="radio" name="page-1-display-type" title="duplicates" value="duplicates" class="controls-radio" checked="checked"/> Duplicates
+                        <br>
+                        <input type="radio" name="page-1-display-type" title="interlinks" value="interlinks" class="controls-radio"/> Interlinks
+                    </form>
+                </div>
+            </div>
+
+            <br><br><br><br><br>
+
+            <p> This chart visualises part of the <b>Majestic backlink database</b>. </p>
+
+            <p> Starting with the site of the university that you choose in the dropdown above, this shows the main
+                backlinks pointing to the site, and the backlinks to these neighbouring sites
+                and so on. </p>
+
+                <p>As links in HTML can only go one way, the only way to obtain this information
+                on a web scale is to crawl the world-wide-web and invert the entire linking structure
+                using networks of powerful computers.</p>
+
+                <p><a href="//majestic.com">Majestic</a> has been a pioneer in commercial backlink intelligence and has
+                constructed the world's largest map of it's type.</p>
+
+            <p><b>Left-click</b> and <b>drag</b> to pin a node and display it's information. <b>Double-click</b> a node to unpin it.</p>
+            <p><b>Right-click</b> to visit the site that a node represents.</p>
+            <p>Nodes are coloured by their main <b>Topic</b>, and links are coloured based on the <b>Trust Flow</b> of the backlinking site.</p>
+        </div>
+
+    </section>
+</section>
+
+<section id="twitter-button">
+
+</section>
+
+<!-- Load in the app-specific JS -->
+<script src="app.js"></script>
+
+</body>
+
+</html>

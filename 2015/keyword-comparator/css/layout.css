@@ -1,0 +1,21 @@
+.data-buttons {
+	position: fixed;
+	bottom: 10px;
+	left: 10px;
+}
+
+#websiteList {
+    position: fixed;
+    top: 50px;
+    right: 5px;
+    text-align: center;
+    vertical-align: middle;
+    display: none;
+    border-style: solid;
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+td {
+    width: 300px;
+}

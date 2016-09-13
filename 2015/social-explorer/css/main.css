@@ -1,0 +1,255 @@
+body {
+    overflow-x: hidden;
+}
+
+.graphContainer {
+    width: 70%;
+    height: 100%;
+    float: right;
+    margin: auto;
+}
+
+.graph {
+    margin: auto;
+}
+
+.top-item, #top-title {
+    border-bottom: solid 1px rgba(255,255,255,0.3);
+    margin: 0 10px;
+    padding: 15px 10px;
+    color: #fff;
+}
+
+#main-content {
+    width: 100%;
+    height: 95%;
+}
+
+.container {
+    width: 100%;
+    max-height: 100%;
+}
+
+.row {
+    max-height: 100%;
+}
+
+#title-bar {
+    font-weight: bold;
+    text-align: center;
+    font-size: 160%;
+    border-color: #333;
+}
+
+#search-container, #title-bar {
+    height: 100%;
+    margin: 5px;
+}
+
+/* Top 10 elements */
+#top-container {
+    float: left;
+    display: none;
+    height: 100%;
+    width: 30%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-bottom: 50px;
+    background: #4BB6FF;
+    
+/*    min-width: 230px;*/
+}
+
+.top-item-link a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}
+
+#top-title {
+    /* font-weight: bold; */
+    text-align: center;
+    font-size: 150%;
+    color: #fff;
+    /* text-transform: uppercase; */
+}
+
+.top-item-highlighted {
+    background-color: #FF6664;
+    border-radius: 4px;
+}
+
+.top-item {
+    vertical-align: middle;
+    height: 8%;
+    max-height: 8%;
+    
+/*    display: table;*/
+}
+
+.top-item-rank, .top-item-details {
+    display: table-cell;
+}
+
+.top-item-rank {
+    width: 40px;
+    /* font-size: 200%; */
+    height: 100%;
+    padding-right: 20px;
+    /* border-right: 1px solid #4099FF; */
+    /* color: #4099FF; */
+    text-align: center;
+    vertical-align: middle;
+    padding: 0px 5px;
+}
+
+.top-item-details {
+    width: 100%;
+    padding: 0 10px 10px 10px;
+    vertical-align: middle;
+}
+
+.top-item-link {
+    margin-right: 0;
+}
+
+/* Makes sure twitter buttons have gap between them */
+.top-item-details iframe {
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.top-item-twitbuttons {
+    display: inline-block;
+    opacity: 0.7;
+/*    padding-top: 0.5em;*/
+}
+
+.top-item-majimg {
+    font-size: 1.2em;
+    /* line-height: 2em; */
+    display: inline-block;
+    padding: 3px 7px;
+    border-radius: 20%;
+    margin: 5px 0px;
+    cursor: pointer;
+    border: 2px solid #fff;
+    float: right;
+    font-weight: bold;
+}
+
+/* End top 10 */
+
+/* Search elements */
+
+#search-container {
+    padding: 4px;
+    font-size: 130%;
+}
+
+#search-button {
+    color: white;
+    width: 10%;
+    height: 100%;
+}
+
+#search-input {
+    width: 85%;
+}
+
+/* End search */
+
+#footer {
+	position: fixed;
+    bottom: 0px;
+    height: 3em;
+    width: 100%;
+    bottom: 0px;
+    background: #2d526d none repeat scroll 0px 0px;
+    border-top: 1px solid #1c3b51;
+    padding: 5px;
+    text-align: center;
+    line-height: 3em;
+}
+
+#embedcode-holder {
+    position: fixed;
+    height: 650px;
+    width: 40%;
+    top: 5px;
+    left: 30%;
+    text-align: center;
+    display: none;
+    background: #2d526d;
+    border: 5px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #ff8d40;
+}
+
+.embedcode-code {
+    height: 75px;
+}
+
+#embedcode-buttonshow {
+    z-index: 9999;
+    position: absolute;
+    top: 0.6em;
+    left: 5px;
+    color: #fc0;
+    font-weight: bold;
+}
+
+#footer a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #fc0;
+}
+
+p#analyticsText {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    line-height: 2.3em;
+}
+
+#embedcode-text {
+    padding: 5px;
+    color: white;
+}
+
+.imglogoembedded {
+    bottom: 35px;
+}
+
+.bigbutton {
+    background: #ff8d40;
+    margin: 5px;
+    margin-top: 20px;
+    width: 200px;
+    height: 50px;
+    border: 2px;
+    border-style: solid;
+    border-color: #FF6600;
+}
+
+.hashtag-container {
+    position: fixed;
+    top: 2px;
+    right: 2px;
+    color: #4099FF;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 10px;
+}
+
+.graph-segment {
+    cursor: pointer;
+}
+
+.holdertext {
+    width: 100%;
+}

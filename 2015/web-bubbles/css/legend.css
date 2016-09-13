@@ -1,0 +1,26 @@
+.legend td {
+    border: 1px solid black;
+}
+
+#legyours .legcolor {
+    background-color: #ADEBAD;
+}
+
+#legtheirs .legcolor {
+    background-color: #FFA5A0;
+}
+
+.legcolor {
+    width: 20px;
+    height: 20px;   
+}
+
+.leglabel {
+    padding: 3px;
+}
+
+.legend {
+    position: absolute;
+    right: 20px;
+    top: 50px;
+}

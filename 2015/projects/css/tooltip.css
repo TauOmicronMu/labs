@@ -1,0 +1,32 @@
+.ttlabel {
+    text-align: right;
+}
+
+.ttvalue {
+    text-align: left;
+}
+
+div.tooltips { 
+    white-space: nowrap;
+    color: #333;
+    position: absolute;   
+    text-align: center;      
+    padding: 4px;    
+    font: 12px "Lucida Grande","Lucida Sans Unicode",Verdana,Arial,Helvetica,sans-serif;  
+    background: rgba(255, 255, 255, 0.9) none repeat scroll 0px 0px;
+    border: 1px solid #4D6FAC;
+    border-radius: 5px;
+    padding: 5px 10px;
+    white-space: normal !important; 
+}
+
+#tooltip {
+    pointer-events: none;   
+}
+
+#tutorialtip {
+    width: 30%;
+    position: fixed;
+    bottom: 10px;
+    right: 35%;
+}

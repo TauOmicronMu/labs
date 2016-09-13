@@ -1,0 +1,128 @@
+body {
+    font-size: 0.80vw;
+}
+
+.page-center-area {
+    height: 90%;
+    width: 100%;
+    background-color: #2d526d;
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.page-center-area h1 {
+    color: #ff8d40;
+    font-size: 2vw;
+    margin-bottom: 0;
+}
+
+.page-center-area b {
+    color: #ff8d40;
+}
+
+.page-center-area p {
+    width: 100%;
+    text-align: justify;
+    padding: 0;
+}
+
+.page-paragraph-wrappers {
+    text-align: center;
+    margin: auto;
+    display: inline-block;
+}
+
+.page-center-area hr {
+    width: 15%;
+    color: #fff;
+}
+
+#content-area svg, #page-1-content-area svg {
+    position: absolute;
+    top: 52.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#page-info {
+    position: absolute;
+    text-align: justify;
+    height: 9%;
+    max-height: 9%;
+    min-height: 9%;
+    padding: 1% 0 1% 0;
+    width: 30%;
+    top: 70%;
+    left: 35%;
+    background-color: #2d526d;
+    padding-top: 5px;
+    color: #ffffff;
+    line-height: 160%;
+    border-radius: 4px;
+    display: none;
+    opacity: 0.95;
+    z-index: 99999;
+    /*pointer-events: none;*/
+    -moz-user-select: text !important;
+    -webkit-user-select: text !important;
+    -ms-user-select: text !important;
+}
+
+#page-info span {
+    font-weight: bold;
+}
+
+#page-info-toggle-bar {
+    width: 100%;
+    background-color: #1c3b51;
+    margin-top: 4.5%;
+}
+
+#page-info-toggle-bar i {
+    margin-left: 97%;
+    cursor: pointer;
+}
+
+.controls-radio {
+    margin-left: 10%;
+}
+
+#inputs, #go-button {
+    display: inline-block;
+    height: 100%;
+}
+
+#inputs {
+    width: 50%;
+}
+
+#go-button {
+    padding: 12px 5px 12px 5px;
+    margin: 0 5px 0 5px;
+    position: relative;
+    top: -13.5px;
+}
+
+.button {
+    border-radius: 4px;
+    margin: 0 5px 0 5px;
+    padding: 1px;
+    color: #ffffff;
+    background: #2d526d;
+    border: solid #ccc 1px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#page-4-back-button-area, #page-4-go-deeper-button-area, #page-1-go-deeper-button-area {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+
+#back-to-reports-button, #go-deeper-button, #page-1-go-deeper-button {
+    padding: 10px 5px 10px 5px;
+}

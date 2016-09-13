@@ -1,0 +1,213 @@
+
+.label {
+    pointer-events: none;
+    font: 10px sans-serif !important;
+    color: #000 !important;
+}
+
+circle {
+    stroke-width: 1.5px;
+    cursor: pointer;
+}
+
+circle:hover {
+    stroke-width: 5px;
+}
+
+line {
+    stroke: #999;
+}
+
+.unselectable {
+    -moz-user-select: -moz-none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+body {
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    cursor: default;
+    font-size: 0.9vw;
+}
+
+h1 {
+    text-align: center;
+}
+
+hr {
+    font-weight: bold;
+    width: 80%;
+}
+
+input {
+    text-align: center;
+}
+
+p {
+    padding-left: 10%;
+    padding-right: 10%;
+    text-align: justify;
+}
+
+a {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+footer {
+    padding: 7.5px 0 7.5px 0;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 2%;
+    z-index: 9999999;
+    background-color: #ff8d40;
+    text-align: center;
+    color: #fff;
+    font-weight: bolder;
+}
+
+.page {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    font-size: 1vw;
+}
+
+.page-wrapper {
+    position: relative;
+    text-align: center;
+    height: inherit;
+    width: inherit;
+}
+
+.button:hover {
+    background-color: #1c3b51;
+}
+
+.radio-form input {
+    cursor: pointer;
+}
+
+.context-menu-item {
+    font-family: Arial, sans-serif !important;
+}
+
+#logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99999999999;
+}
+
+#controls {
+    background-color: #2d526d;
+    color: #ffffff;
+    min-width: 20vw;
+    max-width: 20vw;
+    min-height: 100vh;
+    float: right;
+    display: inline-block;
+}
+
+#controls b {
+    color: #ff8d40;
+}
+
+#content-area {
+    width: 80vw;
+    height: 100vh;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+}
+
+.arrow-down {
+    width: 0;
+    height: 0;
+
+    margin: auto;
+
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+
+    border-top: 30px solid #fff;
+}
+
+#reports-list {
+    width: 100%;
+    overflow-y: scroll;
+    height: 80%;
+}
+
+/* Webkit Scrollbar Styling - DOES NOT WORK IN FIREFOX */
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+}
+::-webkit-scrollbar-thumb {
+    background: #2d526d;
+    border: 0 none #ffffff;
+    border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #1c3b51;
+}
+::-webkit-scrollbar-thumb:active {
+    background: #ff8d40;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border: 0 none #ffffff;
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar-track:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+::-webkit-scrollbar-track:active {
+    background: rgba(255, 255, 255, 0.05);
+}
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+.b {
+    color: #ff8d40;
+    padding-left: 10%;
+}
+
+#forget-me-button {
+    position: relative;
+    float: left;
+    padding-bottom: 1%;
+    background-color: #fff;
+    height: 50%;
+    margin-left: 10px;
+    margin-bottom: 2.5px !important;
+    border-radius: 4px;
+    color: #ff8d40;
+    border: solid #ccc 0.5px;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#forget-me-button:hover {
+    background-color: #1c3b51;
+}
