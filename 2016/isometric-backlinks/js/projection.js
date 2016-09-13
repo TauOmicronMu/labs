@@ -128,7 +128,7 @@ function draw() {
 
     var tip = d3.tip()
         .attr('class', 'd3-tip')
-        .offset([-10, 0])
+        .offset([-$(document).height()*0.4, -$(document).width()*0.3])
         .html(function(d) {
             return d.date === "" ? "" : "<strong>" + d.date + "</strong>, " + d.count;
         });

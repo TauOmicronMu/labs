@@ -3,51 +3,114 @@
 <head>
     <meta charset="utf-8">
     <title>Isometric Link Projection</title>
-    <link type="text/css" href="css/index.css" rel="stylesheet"/>
+    <link type="text/css" href="css/stylesheet.css" rel="stylesheet"/>
     <link type="text/css" href="css/d3.slider.css" rel="stylesheet"/>
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
     <script src="../lib/FileSaver.min.js"></script>
     <script src="../lib/d3.slider.js"></script>
     <script src="../lib/d3-tip.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/app.js"></script>
+
+    <style>
+        body {
+            color: #fff;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        body a {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        #content-area {
+            width: 79%;
+            height: 100%;
+            display: inline-block;
+            margin: auto;
+            text-align: center;
+        }
+
+        #slider {
+            margin: auto;
+        }
+
+        #desc-panel {
+            position: absolute;
+            right: 0;
+            width: 19%;
+            height: 100%;
+            display: inline-block;
+            background-color: #2d526d;
+            padding: 5px;
+        }
+
+        svg {
+            margin-left: 10%;
+        }
+
+        #desc-panel h1 {
+            text-align: center;
+        }
+
+        #content-wrap:not(.d3-tip) {
+            position: fixed;
+            top: 50%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+        }
+
+        .d3-tip {
+            color: #000;
+        }
+
+    </style>
+
 </head>
 <body>
-    <h1>Link projection</h1>
-    <h3>Shows <a href="https://developer-support.majestic.com/api/commands/get-back-links-history.shtml" target="_blank">backlink</a> history from December 2010 to May 2016</h3>
-    <svg></svg>
-    <br>
-    Site:&nbsp;
-    <select id="dropdown" onchange="onDropdownChange()">
-        <option value="bitbucket.org" selected>Bitbucket</option>
-        <option value="github.com">GitHub</option>
-        <option value="amazon.co.uk">Amazon</option>
-        <option value="majestic.com">Majestic</option>
-        <option value="bbc.co.uk">BBC</option>
-        <option value="google.com">Google</option>
-        <option value="ox.ac.uk">Oxford University</option>
-        <option value="reddit.com">Reddit</option>
-    </select>
-    &nbsp;
-    Link type:
-    <select id="dropdown2" onchange="onDropdownChange()">
-        <option value="TextLink">Text</option>
-        <option value="ImageLink">Image</option>
-        <option value="Redirect">Redirect</option>
-        <option value="Frame">Frame</option>
-        <option value="Mention">Mention</option>
-        <option value="NoFollow">No follow</option>
-        <option value="Deleted">Deleted</option>
-        <option value="TotalLinks" selected>Total</option>
-        <option value="CrawledPages">Crawled</option>
-        <option value="RefDomains">Ref domains</option>
-        <option value="MentionDomains">Mention domains</option>
-        <option value="DomainURLs">Domain URLs</option>
-    </select>
-    <br><br><br>
-    <!-- <br><br>
-    <div id="slider2" class="d3-slider d3-slider-vertical"></div> -->
-    <div id="slider" class="d3-slider d3-slider-horizontal" style="width: 50%;"></div>
+    <img id="logo" src="../res/majestic-logo-black-trans-small.png"/>
+    <section id="content-area">
+        <div id="content-wrap">
+            <svg></svg>
+            <br>
+            Site:&nbsp;
+            <select id="dropdown" onchange="onDropdownChange()">
+                <option value="bitbucket.org" selected>Bitbucket</option>
+                <option value="github.com">GitHub</option>
+                <option value="amazon.co.uk">Amazon</option>
+                <option value="majestic.com">Majestic</option>
+                <option value="bbc.co.uk">BBC</option>
+                <option value="google.com">Google</option>
+                <option value="ox.ac.uk">Oxford University</option>
+                <option value="reddit.com">Reddit</option>
+            </select>
+            &nbsp;
+            Link type:
+            <select id="dropdown2" onchange="onDropdownChange()">
+                <option value="TextLink">Text</option>
+                <option value="ImageLink">Image</option>
+                <option value="Redirect">Redirect</option>
+                <option value="Frame">Frame</option>
+                <option value="Mention">Mention</option>
+                <option value="NoFollow">No follow</option>
+                <option value="Deleted">Deleted</option>
+                <option value="TotalLinks" selected>Total</option>
+                <option value="CrawledPages">Crawled</option>
+                <option value="RefDomains">Ref domains</option>
+                <option value="MentionDomains">Mention domains</option>
+                <option value="DomainURLs">Domain URLs</option>
+            </select>
+            <br><br><br>
+            <!-- <br><br>
+            <div id="slider2" class="d3-slider d3-slider-vertical"></div> -->
+            <div id="slider" class="d3-slider d3-slider-horizontal" style="width: 50%;"></div>
+        </div>
+    </section>
+    <section id="desc-panel">
+        <h1>Link projection</h1>
+        <h3>Shows <a href="https://developer-support.majestic.com/api/commands/get-back-links-history.shtml" target="_blank">backlink</a> history from December 2010 to May 2016</h3>
+    </section>
     <script src="js/projection.js"></script>
 </body>
 </html>
