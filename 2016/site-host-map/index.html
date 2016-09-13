@@ -5,22 +5,41 @@
         margin: 0;
         padding: 0;
         overflow: hidden
+        color: #fff;
     }
 
     #slider {
+        width: 80%;
         position: absolute;
-        bottom: 2%;
+        bottom: 10%;
         left: 10%;
-        right: 10%;
+    }
+
+    #content-area {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 78%;
+        height: 100%;
+        text-align: center;
     }
 
     #choropleth {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: auto;
     }
+
+    #desc-area {
+        height: 100%;
+        width: 18%;
+        background-color: #2D526D;
+        position: absolute;
+        right: 0;
+    }
+
 </style>
 <head>
     <link type="text/css" href="d3.slider.css" rel="stylesheet"/>
@@ -34,7 +53,14 @@
     <script src="js/convert.js"></script> -->
 </head>
 <body>
-<div id="choropleth"></div>
-<div id="slider" class="d3-slider-horizontal"></div>
-<script src="js/index.js"></script>
+
+<section id="content-area">
+    <div id="choropleth"></div>
+    <div id="slider" class="d3-slider-horizontal"></div>
+</section>
+<section id="desc-area">
+sgdfsgsdfg
+</section>
+
+<script src="js/app.js"></script>
 </body>

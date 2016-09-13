@@ -13,6 +13,8 @@ var sliderStep = 5;
 
 // The map itself
 var choropleth = new Datamap({
+    width: $(document).width()*0.8,
+    height: $(document).height(),
     element: document.getElementById("choropleth"),
     projection: 'mercator',
     done: function(datamap) {
