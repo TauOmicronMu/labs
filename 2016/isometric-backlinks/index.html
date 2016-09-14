@@ -11,6 +11,9 @@
     <script src="../lib/d3.slider.js"></script>
     <script src="../lib/d3-tip.js"></script>
     <script src="js/app.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 
     <style>
         body {
@@ -34,6 +37,7 @@
 
         #slider {
             margin: auto;
+            width: 50%;
         }
 
         #desc-panel {
@@ -81,50 +85,108 @@
             font-weight: bold;
         }
 
+        .left-wrap {
+            width: 25%;
+            display: inline-block;
+        }
+
+        .right-wrap {
+            width: 70%;
+            display: inline-block;
+        }
+
+        .left-wrap span {
+            float: right;
+        }
+
+        .right-wrap select {
+            text-align: center;
+        }
+
+        b {
+            color: #ff8d40;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: #ff8d40;
+            width: 100%;
+            text-align: center;
+            z-index: 9999;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        #desc-wrapper {
+            position: relative;
+            left: 50%;
+            top: 40%;
+            transform: translate(-50%, -50%);
+        }
+
     </style>
 
 </head>
 <body>
+<footer>
+    Made with <i class="fa fa-heart" aria-hidden="true"></i> by
+    <a href="https://twitter.com/TauOmicronMu" class="twitter-follow-button" data-show-count="false">@TauOmicronMu</a>
+    and
+    <a class="github-button" href="https://github.com/SamTebbs33" aria-label="Follow @SamTebbs33 on GitHub">SamTebbs33</a>
+</footer>
     <img id="logo" src="../res/majestic-logo-black-trans-small.png"/>
     <section id="content-area">
         <div id="content-wrap">
             <svg></svg>
             <!-- <br><br>
             <div id="slider2" class="d3-slider d3-slider-vertical"></div> -->
-            <div id="slider" class="d3-slider d3-slider-horizontal" style="width: 50%;"></div>
+            <div id="slider" class="d3-slider d3-slider-horizontal"></div>
         </div>
     </section>
     <section id="desc-panel">
-        <h1>Link projection</h1>
-        <h3>Shows <a href="https://developer-support.majestic.com/api/commands/get-back-links-history.shtml" target="_blank">backlink</a> history from December 2010 to May 2016</h3>
-        <div id="dropdown-wrapper">
-            <span>Site</span>&emsp;
-            <select id="dropdown" onchange="onDropdownChange()">
-                <option value="bitbucket.org" selected>Bitbucket</option>
-                <option value="github.com">GitHub</option>
-                <option value="amazon.co.uk">Amazon</option>
-                <option value="majestic.com">Majestic</option>
-                <option value="bbc.co.uk">BBC</option>
-                <option value="google.com">Google</option>
-                <option value="ox.ac.uk">Oxford University</option>
-                <option value="reddit.com">Reddit</option>
-            </select>
-            <br>
-            <span>Link type</span>&emsp;
-            <select id="dropdown2" onchange="onDropdownChange()">
-                <option value="TextLink">Text</option>
-                <option value="ImageLink">Image</option>
-                <option value="Redirect">Redirect</option>
-                <option value="Frame">Frame</option>
-                <option value="Mention">Mention</option>
-                <option value="NoFollow">No follow</option>
-                <option value="Deleted">Deleted</option>
-                <option value="TotalLinks" selected>Total</option>
-                <option value="CrawledPages">Crawled</option>
-                <option value="RefDomains">Ref domains</option>
-                <option value="MentionDomains">Mention domains</option>
-                <option value="DomainURLs">Domain URLs</option>
-            </select>
+        <div id="desc-wrapper">
+            <h1>Backlink History</h1>
+            <div id="dropdown-wrapper">
+                <div class="left-wrap">
+                    <span>Site</span>&emsp;
+                </div>
+                <div class="right-wrap">
+                    <select id="dropdown" onchange="onDropdownChange()">
+                        <option value="bitbucket.org" selected>Bitbucket</option>
+                        <option value="github.com">GitHub</option>
+                        <option value="amazon.co.uk">Amazon</option>
+                        <option value="majestic.com">Majestic</option>
+                        <option value="bbc.co.uk">BBC</option>
+                        <option value="google.com">Google</option>
+                        <option value="ox.ac.uk">Oxford University</option>
+                        <option value="reddit.com">Reddit</option>
+                    </select>
+                </div>
+                <br>
+                <div class="left-wrap">
+                    <span>Link type</span>&emsp;
+                </div>
+                <div class="right-wrap">
+                    <select id="dropdown2" onchange="onDropdownChange()">
+                        <option value="TextLink">Text</option>
+                        <option value="ImageLink">Image</option>
+                        <option value="Redirect">Redirect</option>
+                        <option value="Frame">Frame</option>
+                        <option value="Mention">Mention</option>
+                        <option value="NoFollow">No follow</option>
+                        <option value="Deleted">Deleted</option>
+                        <option value="TotalLinks" selected>Total</option>
+                        <option value="CrawledPages">Crawled</option>
+                        <option value="RefDomains">Ref domains</option>
+                        <option value="MentionDomains">Mention domains</option>
+                        <option value="DomainURLs">Domain URLs</option>
+                    </select>
+                </div>
+            </div>
+            <p>This visualisation represents the <b>total backlinks found</b> for a given site in each month between December 2010 and June 2016.</p>
+            <p>The <b>Site</b> dropdown lets you view different sites, and the <b>Link Type</b> lets you view different types of backlink.</p>
         </div>
     </section>
     <script src="js/projection.js"></script>

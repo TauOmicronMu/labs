@@ -1,13 +1,12 @@
-/**
- * Created by samuelt on 02/09/2016.
- */
 
-var isoWidth = 6, isoLength = 11;
+var isoWidth = 6, isoLength = 12;
 var dataOffset = 54;
 var data = null;
 
-d3.select('#slider').call(d3.slider().value(isoLength).axis(d3.svg.axis().orient("top").ticks(10)).min(1).max(11).step(1).on("slide", function (evt, val) {
-    isoLength = val;
+var sliderAxis = d3.svg.axis().scale(d3.time.scale().range([0, 6])).ticks(8).orient("top");
+
+d3.select('#slider').call(d3.slider().value(isoLength / 2).axis(sliderAxis).min(0.5).max(6).step(0.5).on("slide", function (evt, val) {
+    isoLength = val * 2;
     draw();
 }));
 
@@ -27,10 +26,10 @@ function onDropdownChange() {
 }
 
 function draw() {
-    var L, PAD, iso_data, enter_pipedons, height, iso_layout, isometric, parallelepipedon, path_generator, pipedons, svg, vis, width, y_color;
+    var L, PAD, iso_data, enter_pipedons, height, iso_layout, isometric, parallelepipedon, path_generator, pipedons, svg, vis, width, id_colour;
 
-    var width = $(document).width() * 0.7;
-    var height = $(document).height() * 0.7;
+    width = $(document).width() * 0.7;
+    height = $(document).height() * 0.7;
 
     var svg = d3.select("svg").attr("width", width)
         .attr("height", height);;
@@ -94,7 +93,9 @@ function draw() {
             }).join('L') + 'z';
     };
 
-    y_color = d3.scale.category10();
+    id_colour = function (id) {
+        return Math.floor(id / isoWidth) % 2 === 0 ? "#2d526d" : "#ff8d40"
+    };
     L = 30;
     PAD = 9;
 
@@ -105,12 +106,12 @@ function draw() {
             if (val.count > max) max = val.count;
         }
     }
-    console.log(max);
 
     iso_data = d3.range(isoLength * isoWidth).map(function(i) {
         var elem = data[i + dataOffset];
         if(!!elem) {
             return {
+                id: i,
                 x: (i % 6) * L + 200,
                 y: Math.floor(i / 6) * L + (2 * i) - 165,
                 dx: L - PAD,
@@ -119,7 +120,7 @@ function draw() {
                 count: !!elem ? elem.count : 0,
                 dz: !!elem ? scale(elem.count, max + 1,  height / 10) : 0
             };
-        } else return {x: -1, y: -1, dx: -1, dy: -1, dz: -1};
+        } else return {id: 0, x: -1, y: -1, dx: -1, dy: -1, dz: -1};
     });
 
     iso_layout(iso_data, parallelepipedon);
@@ -151,7 +152,7 @@ function draw() {
             return path_generator(d.iso.face_left);
         },
         fill: function(d) {
-            return y_color(d.x);
+            return id_colour(d.id);
         }
     });
 
