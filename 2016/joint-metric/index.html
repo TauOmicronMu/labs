@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Majestic Visualisation</title>
+    <link rel="stylesheet" type="text/css" href="lib/javascript.fullPage.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,300,700" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" async
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <script src="metric.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/countupjs/1.7.1/countUp.min.js"></script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+</head>
+
+<body>
+<div id="fullpage">
+    <div class="section">
+        <div class="content">
+            <h1>A Joint Citation/Trust Flow Metric</h1>
+            <p>Tom Goodman</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="content">
+            <b>
+                <p>Trust Flow and Citation Flow are Majestic's iconic descriptors for sites,</p>
+                <p>but how do you combine these into a single, descriptive metric?</p>
+            </b>
+            <p>This is what we're going to try and answer.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="slide">
+            <div class="content">
+                <p>
+                    <img src="res/heatmap.png">
+                    <br>
+                    <span style="font-size: 1em"> This is Majestic's heatmap of the internet.</span>
+                    <br>
+                    <span style="font-size: 0.5em">It shows <b>where</b> every site on the internet falls, based on their Trust and Citation flows.</span>
+                </p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <p> On the y-axis is <b>Trust Flow</b>, which is how trustworthy a site is, based on it's backlinking sites.</p>
+                <br>
+                <p> On the x-axis is <b>Citation Flow</b>, which is how linked-to a site is.</p>
+                <br>
+                <p> Each coloured band contains the <b>same number</b> of sites as eachother.</p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <div class="left">
+                    <img src="res/heatmap-arrows.png"/>
+                </div>
+                <div class="right">
+                    <p>
+                        If we take points at the visual "tip" of each of the coloured band sections - denoted by the arrows -
+                        it's clear that it would be possible to <b>plot a curve</b> that runs along the points.
+                    </p>
+                    <br>
+                    <p>
+                        This curve runs along the ridge of the three dimensional model:
+                        <br><br>
+                        <img src="res/ridge.png" style="width: 50%;"/>
+                        <br><br>
+                        Along the <b>z-axis</b> of this model is the total number of sites that fall at that
+                        point, which means that the sites that fall on the ridge are the "average" sites.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <p>By performing <a href="https://en.wikipedia.org/wiki/Nonlinear_regression">non-linear regression</a> on the data points,</p>
+                    <p>it results in a sigmoidal function (an S-shaped curve) as follows:</p>
+                <p>$$f(c) = 18087660 - \frac{18087660}{(0.0109887c^{1.61008}+1)^{1.86131*10^{-6}}}$$</p>
+                <p> This takes any given <b>Citation Flow</b>, c, and will return the <b>Trust Flow</b> that lies on the ridge of the model.</p>
+                <br>
+                <p>As part of our metric, it will be useful to work out the shortest distance from any point on the graph to this curve.</p>
+                <br>
+                <p>But <b>HOW</b> do we do this?</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TODO : Add ties to main sequence of stars -->
+
+    <div class="section">
+        <div class="slide">
+            <div class="content">
+                <h2>Hit <b>▽</b> to skip the mathsy part & carry on to the finalisation of the metric.</h2>
+                <h2>Hit <b>▷</b> to see the maths.</h2>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <p>In order to find the distance from any arbitrary point (x, y) to the curve that we defined before, we will work</p>
+                <p>out how to find the distance from (x, y) to any given curve. Take the graph of $y=x^{3}$, for example:</p>
+                <br>
+                <img src="res/x3.png" style="background-color: #fff"/>
+                <br>
+                <p>
+                    After adding an arbitrary point, <b>A</b>$(x_{0}, y_{0})$, it is possible to draw both a vertical and horizontal line </p>
+                <p>
+                    from that point to touch the curve. These points lie at <b>B</b>$(x_{0},f(x_{0}))$ and <b>C</b>$(f^{-1}(y_{0}),y_{0})$ respectively,
+                </p>
+                <p>
+                    and subtend an angle of $90^{\circ}$.
+                </p>
+                    <br>
+                <img src="res/x3-1.png" style="background-color: #fff"/>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <p>From here, it is possible to draw a further line, between points <b>B</b> and <b>C</b>, </p>
+                <p> forming the hypotenuse of the right-angled triangle, <b>BAC</b>.</p>
+                <br>
+                <img src="res/x3-2.png" style="background-color: #fff"/>
+                <br>
+                <p>
+                    The length of the line <b>AB</b> is the difference in the y-values of the two points - $y_{0}-f(x_{0})$, and the length of the line <b>AC</b> is the difference in the x-values of the two points - $(f^{-1}(y_{0})-x_{0})$. Furthermore, the length of the hypotenuse, <b>BC</b>, can be found via Pythagoras' Theorem:
+                    $$\sqrt{(f^{-1}(y_{0})-x_{0})^{2} + (y_{0}-f(x_{0}))^{2}}$$
+                </p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <p>
+                    The required value for the basic approximation is the height of the triangle <b>BAC</b>. Because it is right-angled, the area is equal to $\frac{|AB||AC|}{2}$. The area of any triangle is also equal to $\frac{|BC|h}{2}$. By setting these expressions equal to one another, and rearranging, the resulting expression for height is:
+                    $$ h=\frac{|AB||AC|}{|BC|} = \frac{(f^{-1}(y_{0})-x_{0})(y_{0}-f(x_{0}))}{\sqrt{(f^{-1}(y_{0})-x_{0})^{2} + (y_{0}-f(x_{0}))^{2}}}$$
+
+                    To take a greater proportion of cases into account, it is worth taking the minimum value of h, $|AB|$ and $|AC|$. For example:
+
+                    $$ h=min\Bigg(\Bigg(\frac{(f^{-1}(y_{0})-x_{0})(y_{0}-f(x_{0}))}{\sqrt{(f^{-1}(y_{0})-x_{0})^{2} + (y_{0}-f(x_{0}))^{2}}}\Bigg),\ |(f^{-1}(y_{0})-x_{0})|,\ |(y_{0}-f(x_{0}))|\Bigg)$$
+                </p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <h2><b>▷</b>&emsp; "More maths? Yay!" (｡◕‿◕｡)</h2>
+                <br>
+                <h2><b>▽</b>&emsp; "No more maths... please" (╯°□°）╯︵ ┻━┻ </h2>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <p>The previously derived expression for the approximation can often wildly over or underestimate, given the right circumstance. Take for example, the following attempt to apply the current method:</p>
+                <br><br><br>
+                <img src="res/ue-1.png"/>
+                <br><br><br><br>
+                <p>
+                    In this example, the point that <b>h</b> reaches is nowhere near the closest point on the line - there is still a lot of space between them.
+                    Consider then, the midpoint of the hypotenuse - From the midpoint, it is possible to apply the same process as from the original point, and then take the sum of both results. For example:
+                </p>
+                <br>
+                <img src="res/ue-2.png"/>
+                <br>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <p>
+                    It is clear that the sum of the two calculated values ($h1 + h2$) is a significantly more
+                </p>
+                <p>
+                    accurate estimate of the distance to the curve.
+                </p>
+                <br>
+                <p>Define a function, <b>h(x,y)</b>, that returns the minimum value in the set that contains the </p>
+                <p>result of the auxiliary function, <b>a(x,y)</b>, the vertical distance and the horizontal distance:</p>
+                <p><b>$$h(x, y) = min(\ a(x,y),\ |(f^{-1}(y)-x)|,\ |(y-f(x))|)$$</b></p>
+                <p>
+                    Then define the auxiliary function, <b>a(x,y)</b>, that handles the recursive aspect of the approximation:
+                </p>
+                <p>
+                    $$a(x,y) = \Bigg( \frac{(f^{-1}(y)-x)(y-f(x))}{\sqrt{(f^{-1}(y)-x)^{2}+(y-f(x))^{2}}} \Bigg)\ +\ a\Bigg( \frac{x+f^{-1}(y)}{2}, \frac{f(x)+y}{2} \Bigg)$$
+                </p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <h2><b>▷</b>&emsp; "Huzzah! Even more maths!" ٩(⁎❛ᴗ❛⁎)۶</h2>
+                <br>
+                <h2><b>▽</b>&emsp; "No more!" ┻━┻ ︵ヽ(`Д´)ﾉ︵ ┻━┻ </h2>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <p>By applying the original method to the following curve, it is clear that it will overestimate the distance significantly - in the same way that the previous example originally underestimated it.</p>
+                <br>
+                <img src="res/oe-1.png"/>
+                <br>
+                <p>The even more troubling flaw with the current method, is that if we continue the approximation and apply the recursive method, the overestimation will only become higher:</p>
+                <br>
+                <img src="res/oe-2.png"/>
+                <br>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <p>
+                    The answer to this, is to somehow subtract the heights that occur below the curve from the total, resulting in a close approximation once again. But how is it possible to change the sign of the height based on whether or not the point lies below the curve?
+                </p>
+                <br><br>
+                <p>
+                    If the point lies below the curve, then intuitively, $y-f(x)$ will be negative. It is now imperative to find a way to change the sign without changing the value of the distance itself. This can be achieved by multiplying the height by -1. The key to working out how to solve this issue, is to exploit the identity that anything divided by itself is equal to 1 ($\frac{a}{a}=1$). There is; however, one more piece to the puzzle.
+                </p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <p> Currently, this will only return 1, not -1. </p> <br>
+                <p>
+                    How then, is it possible to manipulate $\frac{y-f(x)}{y-f(x)}$ in such a way that it will return -1 if $y-f(x)$ is negative?
+                </p> <br>
+                <p>
+                    The answer to this is by using the modulus function ($|x|$). Because this always returns the positive value, the result of $\frac{y-f(x)}{|y-f(x)|}$ will be 1 if $y-f(x)$ is positive, and -1 if $y-f(x)$ is negative.
+                </p> <br>
+                <p>
+                    Thus, if the product of $\frac{y-f(x)}{|y-f(x)|}$ and the distance is returned each time, the problem
+                </p>
+                <p>
+                    of overestimating is solved. This leaves the auxiliary function:
+                </p> <br>
+                <p>
+                    $$a(x, y) = \Bigg( \frac{y-f(x)}{|y-f(x)|} \Bigg) \Bigg( \frac{(f^{-1}(y)-x)(y-f(x))}{\sqrt{(f^{-1}(y)-x)^{2}+(y-f(x))^{2}}} \Bigg)\ +\ a\Bigg( \frac{x+f^{-1}(y)}{2}, \frac{f(x)+y}{2} \Bigg)$$
+                </p>
+                <p>
+                    There is, however, one final issue with the current implementation - the distance from a point below the curve to the curve itself will always be negative. It is impossible to have a negative distance in this sense, so a small alteration to the function <b>h(x,y)</b> must be made. The result of the auxiliary function must be passed to a modulus function:
+                    $$h(x, y) = min(\ |a(x, y)|,\ |(y-f(x))|,\ |(f^{-1}(y)-x)|\ ) $$
+                </p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <h2><b>▷</b>&emsp; "Just a little more, I guess..." ¯\_(ツ)_/¯</h2>
+                <br>
+                <h2><b>▽</b>&emsp; 凸(-_-)凸 </h2>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <p>Consider the following application of the current approximation:</p>
+                <br><br>
+                <img src="res/mo-1.png"/>
+                <br><br>
+                <p>
+                    In this example, the actual value lies to the left of the point $x_{0}, y_{0}$. There is a chance that the approximation would currently create the triangles shown on the above diagram, and miss the actual solution that lies to the left. A solution to this, would be to reflect the curve, f(x), in the line $y=x_{0}$, and then use the approximation again (which is the same as drawing a triangle to the left).
+                    To reflect f(x) in $y=x_{0}$, it must first be reflected it in the y-axis, giving $f(-x)$. Then it must be translated right by $2x_{0}$, which leaves the resulting curve as $f(2x_{0}-x)$.
+                </p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <h2> <b> Final Approximation </b> </h2>
+                <p>
+                    $$h(x, y) =min(l(x,y), r(x,y))$$
+                    $$g(x) = f(2x_{0}-x)\ where\ x_{0}\ is\ the\ x-value\ of\ the\ arbitrary\ point.$$
+                    $$l(x,y) = min(\ |a_{1}(x, y)|,\ |(y-g(x))|,\ |(g^{-1}(y)-x)|\ )$$
+                    $$r(x,y) = min(\ |a_{2}(x, y)|,\ |(y-f(x))|,\ |(f^{-1}(y)-x)|\ ) $$
+                    $$a_{1}(x, y) = \Bigg( \frac{y-g(x)}{|y-g(x)|} \Bigg) \Bigg( \frac{(g^{-1}(y)-x)(y-g(x))}{\sqrt{(g^{-1}(y)-x)^{2}+(y-g(x))^{2}}} \Bigg)\ +\ a\Bigg( \frac{x+g^{-1}(y)}{2}, \frac{g(x)+y}{2} \Bigg)$$
+                    $$a_{2}(x, y) = \Bigg( \frac{y-f(x)}{|y-f(x)|} \Bigg) \Bigg( \frac{(f^{-1}(y)-x)(y-f(x))}{\sqrt{(f^{-1}(y)-x)^{2}+(y-f(x))^{2}}} \Bigg)\ +\ a\Bigg( \frac{x+f^{-1}(y)}{2}, \frac{f(x)+y}{2} \Bigg)$$
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="slide">
+            <div class="content">
+                <h2> Finalising a Joint Metric</h2>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <p>
+                    If you didn't read the maths section - given a site with citation, $c_{0}$, and trust, $t_{0}$, the following equation may be used to work out it's distance from the "main sequence" of sites. $f(c)$ and $f^{-1}(c)$ depend on the citation of the given site, and can be found on the next slide.
+
+                    $$h(c, t) =min(l(c,t), r(c,t))$$
+                    $$g(c) = f(2c_{0}-c)$$
+                    $$l(c,t) = min(\ |a_{1}(c, t)|,\ |(t-g(c))|,\ |(g^{-1}(t)-c)|\ )$$
+                    $$r(c,t) = min(\ |a_{2}(c, t)|,\ |(t-f(c))|,\ |(f^{-1}(t)-c)|\ ) $$
+                    $$a_{1}(c, t) = \Bigg( \frac{t-g(c)}{|t-g(c)|} \Bigg) \Bigg( \frac{(g^{-1}(t)-c)(t-g(c))}{\sqrt{(g^{-1}(t)-c)^{2}+(t-g(c))^{2}}} \Bigg)\ +\ a\Bigg( \frac{c+g^{-1}(t)}{2}, \frac{g(c)+t}{2} \Bigg)$$
+                    $$a_{2}(c, t) = \Bigg( \frac{t-f(c)}{|t-f(c)|} \Bigg) \Bigg( \frac{(f^{-1}(t)-c)(t-f(c))}{\sqrt{(f^{-1}(t)-c)^{2}+(t-f(c))^{2}}} \Bigg)\ +\ a\Bigg( \frac{c+f^{-1}(t)}{2}, \frac{f(c)+t}{2} \Bigg)$$
+                </p>
+                <p>
+                   (This could be condensed by passing functions, but for the purpose of explanation it's generally better to be verbose and clear)
+                </p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <p>Because the inverse of the sigmoidal function uses numbers too big for computers (), we can instead model sections of the graph with simpler functions:</p>
+                <br>
+                <p>
+                    The first section (c = 1-19) of the graph can be modelled with quadratic regression.
+                    $$f(c) = 3.959819 + 2.228665c - 0.07230238c^{2}$$
+                    $$f^{-1}(c) = 15.4121 + 1.38308033*10^{-6} \sqrt{|1.52804125862547*10^{14} - 7.230238*10^{12} y|}$$
+                </p>
+
+                <p>
+                    The second section (c = 20-69) of the graph can be modelled with linear regression.
+
+                    $$f(c) = 1.000339c + 13.1116$$
+                    $$f^{-1}(t) = -0.999661(13.1116-t)$$
+                </p>
+
+                <p>
+                    The third section (c = 70-100) of the graph can be modelled with linear regression.
+
+                    $$f(c) = 0.6077348c + 39.09392$$
+                    $$f^{-1}(t) = -1.64545(39.09392-t)$$
+                </p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <p>
+                    To calculate our joint metric, we want to take into account the distance from our site's location <b>(c,t)</b> to the curve. Let <b>dist(c,t)</b> be our function
+                    that calculates the distance from any arbitrary point to the "Main Sequence" of sites on the internet.
+                </p>
+                <br>
+                <p>
+                    Currently, the lower the distance the better, but we want to have a higher score for a shorter distance, so we take the distance from our site <b>(c,t)</b> away from
+                    the maximum possible distance - <b>dist(100,0)</b>.
+                </p>
+                <br>
+                <p>
+                    The 'best' sites will be at (100,100), so we should also take the Euclidean distance (straight-line distance) from our site <b>(c,t)</b> to (100,100) into account too.
+                    Once again, we want the difference between this and the distance from the furthest point, (0,0).
+                    $$ \sqrt{(0+100)^{2}+(0+100)^{2}} - \sqrt{(x+100)^{2} + (y+100)^{2}}$$
+                </p>
+                <br><br><br>
+                <p>
+                    We will call these two values distDiff and maxDistDiff respectivsely, and our final metric will be:
+                    <br><br>
+                    <b>
+                        distDiff * maxDistDiff
+                    </b>
+                    <br><br>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="content">
+          <!-- TODO: Metric Shiz-->
+            <h2>Try out the Metric</h2>
+            <br><br>
+            <h1 id="counter">0</h1>
+            Citation: <input id="citation" type="number" min="0" max="100" onchange="updateCounter()"/>
+            &emsp;
+            Trust: <input id="trust" type="number" min="0" max="100" onchange="updateCounter()"/>
+            <br> <br> <br>
+            <button value="Update" onclick="updateCounter()">Update</button>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="lib/javascript.fullPage.js"></script>
+<script type="text/javascript">
+    fullpage.initialize('#fullpage', {
+        anchors: ['1', '2', '3', '4', '5', 'lastPage'],
+        menu: '#menu',
+        css3:true
+    });
+
+    var counterOptions = {
+        useEasing : true,
+        useGrouping : true,
+        separator : ',',
+        decimal : '.',
+        prefix : '',
+        suffix : ''
+    };
+
+
+    var counter = new CountUp("counter", 0, 0, 0, 1.0, counterOptions);
+
+    function updateCounter() {
+        var citation = document.getElementById("citation").value;
+        var trust = document.getElementById("trust").value;
+        if(!(trust >= 0 && trust <= 100 && citation >= 0 && citation <= 100)) return; //Kinda account for edge cases.
+        var x = calcMetric(citation, trust);
+        counter.update(!x ? 0 : x);
+    }
+
+</script>
+</body>
+</html>

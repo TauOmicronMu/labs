@@ -105,32 +105,53 @@
          data-click="false">
 
         <!-- SAM! TO ADD A NEW SLIDER JUST ADD AN IMG FOR IT AND ADD A LINK TO THE END OF THE ARRAY =) -->
-        <img src="res/force-graph.png" data-caption="Page Link Network">
-        <img src="res/map.png" data-caption="Site Host Map">
-        <img src="res/iso_backlinks.png" data-caption="Isometric Backlinks">
+        <img id="force-graph" src="res/force-graph.png" data-caption="Page Link Network">
+        <img id="isometric-backlinks" src="res/site-host-map.png" data-caption="Site Host Map">
+        <img id="site-host-map" src="res/isometric-backlinks.png" data-caption="Isometric Backlinks">
+        <img id="joint-metric" src="res/joint-metric.png" data-caption="Joint Trust/Citation Flow Metric">
     </div>
 </section>
 
 <script src="template/generic.js"></script>
 
+
+<!-- TODO: IMPLEMENT THIS
+$(function () {
+     $(document).on("click","img",function(){
+        console.log("hi");
+    });
+ });
+-->
+
 <script>
+    $(function () {
+        $(document).on("click","img",function(){
+            window.location.href = this.src.match(/\/2016\/res\/(.*?)\./)[1];
+        });
+    });
+</script>
+
+<!-- script>
     /* THIS ARRAY, SAM! */
     var paths = [
-            "force-graph",
-            "isometric-backlinks",
-            "site-host-map"
+        "force-graph",
+        "isometric-backlinks",
+        "site-host-map",
+        "joint-metric"
     ];
 
     //Attach button to each caption.
     $(document).ready(function() {
         var captions = document.getElementsByClassName("fotorama__caption__wrap");
 
-        for(var i = 0; i < paths.length; i++) {
+        for(var i = 0; i < paths.length - 1; i++) {
+            console.log(paths[i]);
+            console.log(captions);
             captions[i].innerHTML += "&emsp;<button class='caption-button' onclick='window.location=\"" + paths[i] + "\"'>Visit Site <i class=\"fa fa-external-link\" aria-hidden=\"true\"></i> </button}>";
         }
     });
 
-</script>
+</script -->
 
 </body>
 

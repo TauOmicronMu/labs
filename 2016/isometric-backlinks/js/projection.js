@@ -99,13 +99,11 @@ function draw() {
     L = 30;
     PAD = 9;
 
-    var max = 0;
-    for(var i in data) {
-        if((i - dataOffset) < data.length) {
-            var val = data[i]
-            if (val.count > max) max = val.count;
-        }
-    }
+    var values = [];
+
+    for(i = dataOffset; i < data.length; i++) { values.push(data[i].count) }
+
+    var max = Math.max.apply(null, values);
 
     iso_data = d3.range(isoLength * isoWidth).map(function(i) {
         var elem = data[i + dataOffset];
@@ -118,7 +116,7 @@ function draw() {
                 dy: L - PAD,
                 date: !!elem ? elem.date : "",
                 count: !!elem ? elem.count : 0,
-                dz: !!elem ? scale(elem.count, max + 1,  height / 10) : 0
+                dz: !!elem ? scale(elem.count, max + 1,  height / 1.5) : 0
             };
         } else return {id: 0, x: -1, y: -1, dx: -1, dy: -1, dz: -1};
     });
