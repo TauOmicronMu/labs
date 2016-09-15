@@ -28,7 +28,7 @@ function onDropdownChange() {
 function draw() {
     var L, PAD, iso_data, enter_pipedons, height, iso_layout, isometric, parallelepipedon, path_generator, pipedons, svg, vis, width, id_colour;
 
-    width = $(document).width() * 0.7;
+    width = $(document).width() * 0.8;
     height = $(document).height() * 0.7;
 
     var svg = d3.select("svg").attr("width", width)
@@ -129,10 +129,10 @@ function draw() {
 
     var tip = d3.tip()
         .attr('class', 'd3-tip')
-        .offset([-$(document).height()*0.4, -$(document).width()*0.3])
+        .offset([$(document).height()*-0.01, $(document).width()*0.05])
         .html(function(d) {
             return d.date === "" ? "" : "<strong>" + d.date + "</strong>, " + d.count;
-        });
+        })
     svg.call(tip);
 
     enter_pipedons = pipedons.enter().append('g').attr({
