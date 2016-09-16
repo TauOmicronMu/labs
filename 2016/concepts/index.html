@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Concepts</title>
+
+    <link rel="stylesheet" type="text/css" href="css/javascript.fullPage.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,300,700" rel="stylesheet" type="text/css">
+
+    <script src="../lib/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="lib/javascript.fullPage.min.js"></script>
+    <script src="app.js"></script>
+
+    <style>
+        b {
+            color: #ff8d40;
+        }
+    </style>
+</head>
+
+<body>
+<div id="fullpage">
+
+    <div class="section">
+                <div class="centred">
+                    <h1>Concepts</h1>
+                    <h2>Sam Tebbs</h2>
+                </div>
+            </div>
+
+                <div class="section">
+                    <div class="slide">
+                        <div class="centred">
+                            <h1>General concepts</h1>
+                        </div>
+                    </div>
+
+                    <div class="slide" id="url">
+                        <div class="centred">
+                            <h1>URL</h1>
+                            <h2>
+                                <!-- Tom's styling means that I have to put these on one line, blame him for the unreadability -->
+                                <span id="protocol" class="url-element">http://</span><span id="domain" class="url-element">www.example.com</span><span id="port" class="url-element">:80</span><span id="path" class="url-element">/blog</span><span id="query" class="url-element">?page=2&items=10</span>
+                            </h2>
+                            <br>
+                <br>n
+                <p class="description" id="url-element-description"></p>
+                <br>
+                <br>
+                <small><small><p>Click on part of the URL to learn more about it.</p></small></small>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="centred">
+                <h1>Anchor text</h1>
+                <p>The <b>anchor text</b> is the clickable text of a link. The <b>anchor text</b> of a link embedded within an image is normally defined by the hidden "AltText" tag inserted into the web page.</p>
+                <br>
+                <br>
+                <img src="res/anchor-text.png">
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="centred">
+                <h1>Link</h1>
+                <h2 class="description">A <b>link</b> is a clickable <b>URL</b> on a web page. Most will appear in plain text, but some will be embedded inside an image that you can click on. Click on <a href="#3">this link</a> or this arrow <a href="#3"><img src="res/arrow.png" width="2.5%" height="2.5%"></a> to go to the next section</h2>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="section">
+        <div class="slide">
+            <div class="centred">
+                <h1>Majestic terms</h1>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="centred">
+                <h1>Backlink</h1>
+                <p>A <b>backlink</b> is an <b>incoming link</b> from another site. For example, if site A had a link to site B on one of its web pages, then site B has a <b>backlink</b> to site A.</p>
+                <!-- <div id="backlink-img">
+                    <span class="backlink-img-text">A</span>
+                    <img src="arrow-right.png" width="5%" height="10%">
+                    <span class="backlink-img-text">B</span>
+                    <br>
+                    <img src="arrow-right.png" class="rotate180" width="5%" height="10%">
+                </div> -->
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="centred">
+                <h1>Root domain</h1>
+                <p>A <b>root domain</b> is synonymous with <b>domain</b>, an includes the <b>domain name</b> and <b>top-level domain.</b></p>
+                <br>
+                <p>http://www.<span style="text-decoration: underline">example.com</span>/blog</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="centred">
+                <h1>Referring domain</h1>
+                <p>A <b>domain</b> refers to another <b>domain</b> if it has at least one <b>link</b> to it on any of its web pages.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="centred">
+                <h1>Trust Flow</h1>
+                <p><b>Trust Flow</b> is a Majestic trademarked term that represents the <b>quality</b> of a site. Sites that are linked with a site with high <b>Trust Flow</b> will themselves have their trust flow increased, and the opposite if they are linked with a site with low trust flow.</p>
+                <br>
+                <p>Trust flow was originally allocated based on a manual review of the web's highest quality sites.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="centred">
+                <h1>Citation Flow</h1>
+                <p><b>Citation Flow</b> is another Majestic trademarked term that represents the "<b>power</b>" that the link or site carries, based on the number of <b>backlinks</b> it has. A high <b>Citation Flow</b> can indicate that a site is rich in web 'spam' or that it is just very popular.</p>
+                <br>
+                <p>The Majestic Flow Metrics (<b>Trust Flow</b> and <b>Citation Flow</b>) go hand in hand when determining a site's quality.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="centred">
+                <h1>Fresh and Historic indexes</h1>
+                <p>The Historic Index is the largest index of backlink history on the web and spans back more than 5 years. As building it takes days of processing power, the Fresh index was introduced as an up-to-date database that contains crawled data from the past 90 days and is updated throughout the day.</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+
+    fullpage.initialize('#fullpage', {
+        anchors: ['1', '2', '3', '4', '5', 'lastPage'],
+        css3:true
+    });
+
+</script>
+</body>
+</html>
