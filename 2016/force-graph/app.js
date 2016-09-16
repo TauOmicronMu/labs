@@ -133,7 +133,7 @@ $(document).ready(function() {
         if(i >= 0) {
             // Set correct dropdown option as selected
             $('select>option:eq(' + i + ')').attr('selected', true);
-        } else alert("That report doesn't exist for the moment!")
+        }
     } else {
         // Redirect to url with params present
         redirect("index.html?url=www.birmingham.ac.uk&breadth=10&depth=3&index=FRESH")
